@@ -1,0 +1,241 @@
+/* =========================================================================
+ * lib/content.css —— 页面内注入 UI 的样式
+ * 所有 class 均以 dsh- 前缀命名，避免与站点样式冲突
+ * ========================================================================= */
+
+#dsh-translator-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483000;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #111827;
+}
+
+#dsh-translator-root * {
+  box-sizing: border-box;
+}
+
+/* ------------------------------- 进度提示条 ------------------------------- */
+
+#dsh-translator-root .dsh-progress {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translate(-50%, 20px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.92);
+  color: #f9fafb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+#dsh-translator-root .dsh-progress.dsh-show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+#dsh-translator-root .dsh-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  flex: none;
+}
+
+#dsh-translator-root .dsh-progress[data-kind="busy"] .dsh-dot {
+  background: #60a5fa;
+  animation: dsh-pulse 1s ease-in-out infinite;
+}
+
+#dsh-translator-root .dsh-progress[data-kind="warn"] .dsh-dot {
+  background: #fbbf24;
+}
+
+@keyframes dsh-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+/* ------------------------------- 划词悬浮按钮 ------------------------------ */
+
+#dsh-translator-root .dsh-sel-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+  user-select: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+#dsh-translator-root .dsh-sel-btn.dsh-show {
+  display: flex;
+}
+
+#dsh-translator-root .dsh-sel-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+}
+
+#dsh-translator-root .dsh-sel-icon {
+  transform: translateY(-1px);
+}
+
+/* -------------------------------- 译文卡片 -------------------------------- */
+
+#dsh-translator-root .dsh-popup {
+  position: absolute;
+  width: 360px;
+  max-width: calc(100vw - 24px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+  animation: dsh-pop 0.14s ease-out;
+}
+
+@keyframes dsh-pop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#dsh-translator-root .dsh-popup-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-bottom: 1px solid #eef2f7;
+}
+
+#dsh-translator-root .dsh-popup-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+}
+
+#dsh-translator-root .dsh-popup-close {
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  font-family: inherit;
+}
+
+#dsh-translator-root .dsh-popup-close:hover {
+  color: #ef4444;
+}
+
+#dsh-translator-root .dsh-popup-body {
+  padding: 10px 12px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+#dsh-translator-root .dsh-popup-src {
+  color: #94a3b8;
+  font-size: 12px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #e5e7eb;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#dsh-translator-root .dsh-popup-dst {
+  color: #0f172a;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+#dsh-translator-root .dsh-popup-loading {
+  color: #64748b;
+  font-size: 13px;
+}
+
+#dsh-translator-root .dsh-popup-error {
+  color: #dc2626;
+  font-size: 12.5px;
+  word-break: break-word;
+}
+
+#dsh-translator-root .dsh-popup-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid #eef2f7;
+  background: #fcfdff;
+}
+
+#dsh-translator-root .dsh-popup-engine {
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: right;
+}
+
+#dsh-translator-root .dsh-btn {
+  border: 1px solid #dbe3ee;
+  background: #ffffff;
+  color: #334155;
+  border-radius: 7px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#dsh-translator-root .dsh-btn:hover {
+  background: #f1f5f9;
+  border-color: #c7d2fe;
+  color: #1d4ed8;
+}
+
+/* Edge 的深色模式下让卡片不至于刺眼 */
+@media (prefers-color-scheme: dark) {
+  #dsh-translator-root .dsh-popup {
+    background: #1f2430;
+    border-color: #333c4d;
+  }
+  #dsh-translator-root .dsh-popup-head,
+  #dsh-translator-root .dsh-popup-foot {
+    background: #242a38;
+    border-color: #333c4d;
+  }
+  #dsh-translator-root .dsh-popup-title { color: #cbd5e1; }
+  #dsh-translator-root .dsh-popup-dst { color: #f1f5f9; }
+  #dsh-translator-root .dsh-popup-src { border-color: #333c4d; }
+  #dsh-translator-root .dsh-btn {
+    background: #2b3243;
+    border-color: #3c4759;
+    color: #e2e8f0;
+  }
+  #dsh-translator-root .dsh-btn:hover { background: #333c4d; color: #93c5fd; }
+}

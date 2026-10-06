@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "实时网页翻译 (DeepSeek / Google)",
+  "version": "1.0.0",
+  "description": "Edge 网页实时翻译：整页自动翻译 + 划词即时翻译。默认使用 DeepSeek API，未配置时自动回落到免费 Google 翻译。",
+  "default_locale": "zh_CN",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage", "contextMenus", "activeTab", "tabs", "scripting"],
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.deepseek.com/*",
+    "https://api.openai.com/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["lib/translator.js", "lib/content.js"],
+      "css": ["lib/content.css"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "commands": {
+    "toggle-translate": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "翻译/还原当前页面"
+    }
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "实时网页翻译",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,14 @@
+# 系统与编辑器
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# 测试产物
+.e2e-profile/
+.e2e-probe/
+*.log
+
+# 依赖（本项目无运行时依赖，保留以防后续加入工具链）
+node_modules/

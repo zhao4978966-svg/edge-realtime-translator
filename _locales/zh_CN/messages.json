@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "实时网页翻译 (DeepSeek / Google)",
+    "description": "扩展名称"
+  },
+  "extDesc": {
+    "message": "Edge 网页实时翻译：整页自动翻译 + 划词即时翻译。",
+    "description": "扩展描述"
+  }
+}

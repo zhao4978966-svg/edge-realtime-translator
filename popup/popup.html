@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>实时网页翻译</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header class="head">
+    <div class="brand">
+      <span class="logo">译</span>
+      <div class="brand-text">
+        <strong>实时网页翻译</strong>
+        <span id="pageHint" class="hint">正在读取当前页面…</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="body">
+    <section class="card">
+      <div class="row">
+        <label for="targetLang">翻译成</label>
+        <select id="targetLang"></select>
+      </div>
+      <div class="row">
+        <label for="engine">引擎</label>
+        <select id="engine">
+          <option value="deepseek">DeepSeek API（质量最好）</option>
+          <option value="google">Google 免费接口（免 Key）</option>
+        </select>
+      </div>
+      <div class="row switch-row">
+        <label for="autoTranslate">打开页面自动翻译</label>
+        <label class="switch">
+          <input type="checkbox" id="autoTranslate" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="row switch-row">
+        <label for="overlayEnabled">划词翻译悬浮按钮</label>
+        <label class="switch">
+          <input type="checkbox" id="overlayEnabled" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card" id="deepseekCard">
+      <div class="card-title">DeepSeek 配置</div>
+      <div class="row">
+        <label for="apiKey">API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="row">
+        <label for="apiBase">接口地址</label>
+        <input type="text" id="apiBase" placeholder="https://api.deepseek.com" spellcheck="false" />
+      </div>
+      <div class="row">
+        <label for="model">模型</label>
+        <input type="text" id="model" placeholder="deepseek-chat" spellcheck="false" />
+      </div>
+      <p class="note">
+        未填写 API Key 或调用失败时，会自动改用免费 Google 接口，保证页面仍能翻译。
+      </p>
+    </section>
+
+    <section class="card actions">
+      <button id="translateBtn" class="primary">翻译当前页面</button>
+      <button id="restoreBtn">还原原文</button>
+      <button id="selBtn">翻译选中文字</button>
+      <button id="testBtn">测试接口</button>
+    </section>
+
+    <section class="card">
+      <div class="row switch-row">
+        <label for="debug">调试日志（控制台）</label>
+        <label class="switch">
+          <input type="checkbox" id="debug" />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="status" id="status"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>快捷键：Alt+Shift+T 翻译/还原</span>
+    <span class="version">v1.0.0</span>
+  </footer>
+
+  <script src="../lib/translator.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "edge-realtime-translator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Microsoft Edge / Chromium extension for real-time web page translation (DeepSeek API + Google fallback).",
+  "keywords": [
+    "browser-extension",
+    "edge-extension",
+    "chrome-extension",
+    "manifest-v3",
+    "translation",
+    "deepseek",
+    "realtime-translation"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --experimental-vm-modules tools/validate.mjs",
+    "test:engines": "node tools/test-engines.mjs",
+    "test:longtext": "node tools/test-longtext.mjs",
+    "test:fallback": "node tools/test-fallback.mjs",
+    "test:e2e": "node tools/e2e-edge.mjs",
+    "icons": "python tools/make_icons.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<your-account>/edge-realtime-translator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<your-account>/edge-realtime-translator/issues"
+  }
+}
