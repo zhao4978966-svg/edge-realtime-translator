@@ -1,13 +1,17 @@
 # Real-time Web Page Translator (Edge / Chromium extension)
 
+![manifest v3](https://img.shields.io/badge/manifest-v3-blue)
+![license MIT](https://img.shields.io/badge/license-MIT-green)
+![platform Edge / Chromium](https://img.shields.io/badge/platform-Edge%20%7C%20Chromium-0078D7)
+
+**Repository: `edge-realtime-translator`** · 中文文档见 [README.md](README.md)
+
 A Manifest V3 browser extension that translates web pages **in real time**, right inside the page:
 
 - **Automatic full-page translation** — article text is replaced in place, layout stays intact.
 - **Selection translation** — select any text, a small **译** button appears, click it for a translation card with copy-to-clipboard.
 - **Dynamic content support** — infinite scroll and SPA route changes keep getting translated.
 - **One-click restore** — switch back to the original text at any time.
-
-> 中文文档见 [README.md](README.md)
 
 ## Translation engines
 

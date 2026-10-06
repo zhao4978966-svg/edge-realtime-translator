@@ -45,7 +45,8 @@ chrome.runtime.onInstalled.addListener(function (details) {
     if (Object.keys(patch).length) chrome.storage.local.set(patch);
   });
   if (details && details.reason === 'install') {
-    console.log('[实时网页翻译] 安装完成：请点击工具栏图标设置翻译引擎与目标语言。');
+    console.log('[实时网页翻译] 安装完成｜仓库：github.com/zhao4978966-svg/edge-realtime-translator');
+    console.log('[实时网页翻译] 请点击工具栏图标设置翻译引擎与目标语言。');
   }
 });
 

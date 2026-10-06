@@ -1,7 +1,10 @@
 # 实时网页翻译（Edge 扩展）
 
-A real-time web page translator for Microsoft Edge / Chromium.
-**English documentation: [README.en.md](README.en.md)** · License: [MIT](LICENSE)
+![manifest v3](https://img.shields.io/badge/manifest-v3-blue)
+![license MIT](https://img.shields.io/badge/license-MIT-green)
+![platform Edge / Chromium](https://img.shields.io/badge/platform-Edge%20%7C%20Chromium-0078D7)
+
+**仓库名：`edge-realtime-translator`** · English documentation: [README.en.md](README.en.md) · License: [MIT](LICENSE)
 
 一个可以直接装在 **Microsoft Edge** 里的浏览器扩展，用来做**网页实时翻译**：
 

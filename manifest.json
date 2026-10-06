@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "实时网页翻译 (DeepSeek / Google)",
+  "name": "实时网页翻译 (Realtime Translator)",
   "version": "1.0.0",
-  "description": "Edge 网页实时翻译：整页自动翻译 + 划词即时翻译。默认使用 DeepSeek API，未配置时自动回落到免费 Google 翻译。",
+  "description": "Edge 网页实时翻译：整页自动翻译 + 划词即时翻译。默认使用 DeepSeek API，未配置 Key 时自动使用 Google 翻译兜底。",
   "default_locale": "zh_CN",
   "minimum_chrome_version": "110",
   "permissions": ["storage", "contextMenus", "activeTab", "tabs", "scripting"],
