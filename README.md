@@ -29,6 +29,9 @@ Google 引擎走的是**未文档化的非官方端点**，定位只是"没配 K
 
 **长期使用请配置自己的 DeepSeek（或任意 OpenAI 兼容）API Key。**
 
+<!-- 建议补一张演示截图：把文件放到 docs/screenshot.png，然后取消下面一行的注释 -->
+<!-- ![演示](docs/screenshot.png) -->
+
 ---
 
 ## 一、安装（只需做一次）
